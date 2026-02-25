@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#efe4cc" />
+    <title>Storytellers V2</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="top-bar">
+        <button id="story-title" class="title-button" aria-label="Open story menu">Untitled</button>
+        <div id="save-status" class="save-status">Saved</div>
+      </header>
+
+      <section class="intent-wrap">
+        <details id="intent-details">
+          <summary>Story Intent</summary>
+          <div class="intent-fields">
+            <label>
+              Global Story Intent
+              <textarea id="story-intent" rows="2" placeholder="What is this story trying to do?"></textarea>
+            </label>
+            <label>
+              Chapter Intent
+              <textarea id="chapter-intent" rows="2" placeholder="What should this chapter accomplish?"></textarea>
+            </label>
+          </div>
+        </details>
+      </section>
+
+      <main>
+        <article
+          id="editor"
+          class="editor"
+          contenteditable="true"
+          spellcheck="true"
+          role="textbox"
+          aria-multiline="true"
+        ></article>
+        <div id="gem-line" class="gem-line hidden" aria-live="polite">
+          <button id="gem" class="gem" aria-label="Continue story">◇</button>
+          <div id="gem-help" class="gem-help hidden">Continue the story</div>
+          <div id="gem-tip" class="gem-tip hidden">Tip: ⌘↩ continues anywhere.</div>
+        </div>
+      </main>
+    </div>
+
+    <div id="story-overlay" class="overlay hidden" role="dialog" aria-modal="true">
+      <div class="overlay-card">
+        <h2>Stories</h2>
+        <ul id="story-list" class="story-list"></ul>
+        <div class="overlay-actions">
+          <button id="new-story">New Story</button>
+          <button id="export-md">Export as Markdown</button>
+          <button id="export-txt">Export as Plain Text</button>
+          <button id="close-overlay" class="ghost">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="rewrite-ui" class="rewrite-ui hidden">
+      <button id="rewrite-trigger" class="rewrite-trigger">✧</button>
+      <div id="rewrite-panel" class="rewrite-panel hidden">
+        <input id="rewrite-input" type="text" placeholder="Transform…" />
+        <button id="rewrite-run">Rewrite</button>
+      </div>
+      <div id="rewrite-diff" class="rewrite-diff hidden">
+        <p><strong>Original</strong></p>
+        <p id="diff-old"></p>
+        <p><strong>Revision</strong></p>
+        <p id="diff-new"></p>
+        <div class="diff-actions">
+          <button id="rewrite-accept">Accept</button>
+          <button id="rewrite-reject" class="ghost">Reject</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
