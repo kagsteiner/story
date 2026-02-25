@@ -1,0 +1,9 @@
+{
+  "name": "Storytellers V2",
+  "short_name": "Storytellers",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#efe4cc",
+  "theme_color": "#efe4cc",
+  "icons": []
+}
